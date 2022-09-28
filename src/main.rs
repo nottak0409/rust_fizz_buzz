@@ -24,6 +24,13 @@ fn main() {
     println!("何か数字を入力してください");
 
     let answer = get_input();
-    let number: usize = answer.parse().unwrap();
-    fizzbuzz(number);
+    let number = answer.parse();
+    match number {
+        Ok(number) => {
+            fizzbuzz(number);
+        },
+        Err(_) => {
+            println!("数値を入力してください");
+        }
+    };
 }
